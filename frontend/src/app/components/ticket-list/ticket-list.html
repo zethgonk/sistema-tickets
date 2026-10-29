@@ -1,0 +1,46 @@
+<h2>Tickets de soporte</h2>
+
+@if (error()) {
+  <div class="alerta alerta-error">
+    {{ error() }}
+    <button class="btn" (click)="cargar()">Reintentar</button>
+  </div>
+}
+
+@if (cargando()) {
+  <p>Cargando tickets...</p>
+} @else if (tickets().length > 0) {
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Asunto</th>
+        <th>Solicitante</th>
+        <th>Categoría</th>
+        <th>Prioridad</th>
+        <th>Estado</th>
+        <th>Fecha</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (t of tickets(); track t.id) {
+        <tr>
+          <td>{{ t.id }}</td>
+          <td>{{ t.asunto }}</td>
+          <td>{{ t.solicitante }}</td>
+          <td>{{ t.categoria }}</td>
+          <td><span [class]="'badge prioridad-' + t.prioridad.toLowerCase()">{{ t.prioridad }}</span></td>
+          <td><span [class]="'badge estado-' + t.estado.toLowerCase().replace(' ', '-')">{{ t.estado }}</span></td>
+          <td>{{ t.fechaRegistro }}</td>
+          <td class="acciones">
+            <a [routerLink]="['/editar', t.id]" class="btn">Editar</a>
+            <button class="btn btn-peligro" (click)="eliminar(t)">Eliminar</button>
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+} @else if (!error()) {
+  <p class="vacio">No hay tickets registrados todavía.</p>
+}

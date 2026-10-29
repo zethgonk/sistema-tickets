@@ -1,1 +1,38 @@
-/* You can add global styles to this file, and also import other style files */
+* { box-sizing: border-box; }
+body { margin: 0; font-family: system-ui, Arial, sans-serif; background: #f4f6f8; color: #1f2937; }
+
+.barra { display: flex; justify-content: space-between; align-items: center; padding: 12px 24px; background: #1e3a5f; color: white; }
+.marca { color: white; text-decoration: none; font-size: 1.2rem; font-weight: 700; }
+.contenedor { max-width: 1000px; margin: 24px auto; padding: 0 16px; }
+
+table { width: 100%; border-collapse: collapse; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,.1); }
+th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid #e5e7eb; }
+th { background: #eef2f7; }
+.acciones { display: flex; gap: 6px; }
+
+.btn { display: inline-block; padding: 6px 12px; border: 1px solid #cbd5e1; border-radius: 6px; background: white; color: #1f2937; text-decoration: none; cursor: pointer; font-size: .9rem; }
+.btn:hover { background: #f1f5f9; }
+.btn-primario { background: #2563eb; border-color: #2563eb; color: white; }
+.btn-primario:hover { background: #1d4ed8; }
+.btn-peligro { background: #dc2626; border-color: #dc2626; color: white; }
+.btn-peligro:hover { background: #b91c1c; }
+.btn:disabled { opacity: .6; cursor: not-allowed; }
+
+.badge { padding: 2px 10px; border-radius: 12px; font-size: .8rem; font-weight: 600; }
+.prioridad-alta { background: #fde2e2; color: #b42318; }
+.prioridad-media { background: #fff3cd; color: #8a6100; }
+.prioridad-baja { background: #e0f2e9; color: #1e6b3a; }
+.estado-abierto { background: #dbeafe; color: #1d4ed8; }
+.estado-en-proceso { background: #fef3c7; color: #92400e; }
+.estado-cerrado { background: #e5e7eb; color: #374151; }
+
+.alerta { padding: 10px 14px; border-radius: 6px; margin-bottom: 16px; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.alerta-error { background: #fde2e2; color: #b42318; border: 1px solid #f5b5b5; }
+.vacio { text-align: center; color: #6b7280; padding: 32px; }
+
+form { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,.1); display: grid; gap: 14px; }
+label { display: grid; gap: 4px; font-weight: 600; }
+input, select, textarea { padding: 8px; border: 1px solid #cbd5e1; border-radius: 6px; font: inherit; font-weight: 400; }
+input.ng-invalid.ng-touched, select.ng-invalid.ng-touched, textarea.ng-invalid.ng-touched { border-color: #dc2626; }
+small.error { color: #b42318; font-weight: 400; }
+.botones { display: flex; gap: 8px; }
