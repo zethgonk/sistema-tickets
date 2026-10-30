@@ -1,1 +1,69 @@
-<p>ticket-form works!</p>
+<h2>{{ id ? 'Editar ticket #' + id : 'Nuevo ticket' }}</h2>
+
+@if (error()) {
+  <div class="alerta alerta-error">{{ error() }}</div>
+}
+
+<form [formGroup]="form" (ngSubmit)="guardar()" novalidate>
+  <label>
+    Asunto
+    <input type="text" formControlName="asunto" />
+  </label>
+  @if (invalido('asunto')) {
+    <small class="error">El asunto es obligatorio (mínimo 5 caracteres).</small>
+  }
+
+  <label>
+    Solicitante
+    <input type="text" formControlName="solicitante" />
+  </label>
+  @if (invalido('solicitante')) {
+    <small class="error">El solicitante es obligatorio (mínimo 3 caracteres).</small>
+  }
+
+  <label>
+    Descripción del problema
+    <textarea rows="4" formControlName="descripcion"></textarea>
+  </label>
+  @if (invalido('descripcion')) {
+    <small class="error">La descripción es obligatoria (mínimo 10 caracteres).</small>
+  }
+
+  <label>
+    Categoría
+    <select formControlName="categoria">
+      <option value="" disabled>Selecciona una categoría</option>
+      @for (c of categorias; track c) {
+        <option [value]="c">{{ c }}</option>
+      }
+    </select>
+  </label>
+  @if (invalido('categoria')) {
+    <small class="error">Debes seleccionar una categoría.</small>
+  }
+
+  <label>
+    Prioridad
+    <select formControlName="prioridad">
+      @for (p of prioridades; track p) {
+        <option [value]="p">{{ p }}</option>
+      }
+    </select>
+  </label>
+
+  <label>
+    Estado
+    <select formControlName="estado">
+      @for (e of estados; track e) {
+        <option [value]="e">{{ e }}</option>
+      }
+    </select>
+  </label>
+
+  <div class="botones">
+    <button type="submit" class="btn btn-primario" [disabled]="guardando()">
+      {{ guardando() ? 'Guardando...' : 'Guardar' }}
+    </button>
+    <a routerLink="/" class="btn">Cancelar</a>
+  </div>
+</form>
