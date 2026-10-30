@@ -3,10 +3,15 @@
 Esta es una aplicación web fullstack para registrar, consultar, actualizar y eliminar tickets de soporte técnico. La información se guarda en una base de datos SQLite, por lo que permanece disponible después de cerrar y/o reiniciar la aplicación.
 
 Estudiante: Sebastián González Maturana
-Asignatura: Angular
+
+Asignatura: Backend y TDD con Node.js
+
 Ingeniería en informática
+
 Instituto Profesional Virginio Gómez
+
 Sede Chillán
+
 Octubre de 2026
 
 
